@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ingot · Design System Inspector</title>
+<meta name="description" content="Melt any site down to its design system. Hover to inspect, run an assay to extract, export clean tokens.">
+<style>
+  /* Colours from apps/extension/src/design/tokens.ts (light and dark). */
+  :root {
+    --bg: #F6F3EE; --surface: #FBF9F5; --line: #E4DED4; --ink: #1C1A17; --ink-2: #5B554C;
+    --accent: #C2562B; --link: #A94A24; --code: #EFEAE2;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #151412; --surface: #1D1B18; --line: #36322D; --ink: #EFEAE2; --ink-2: #B4ADA2;
+            --accent: #E07A4A; --link: #EA8E62; --code: #24211E; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .rule { height: 4px; background: linear-gradient(120deg, #8E2F12, #C2562B 45%, #E9A23B); }
+  main { max-width: 680px; margin: 0 auto; padding: 48px 16px 80px; }
+  header { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; font-weight: 600; font-size: 20px; letter-spacing: -0.01em; }
+  h1 { font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 8px; }
+  h2 { font-size: 20px; line-height: 1.3; margin: 40px 0 8px; }
+  p, li { color: var(--ink); }
+  .meta { color: var(--ink-2); margin: 0 0 32px; }
+  a { color: var(--link); }
+  code { font: 14px/1.4 ui-monospace, "JetBrains Mono", Menlo, monospace; background: var(--code); padding: 1px 4px; border-radius: 4px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); }
+  th { font-weight: 600; color: var(--ink-2); }
+  .never { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px; padding: 12px 16px; }
+  .never ul { margin: 4px 0 0; padding-left: 20px; }
+  @media (max-width: 520px) { table, tbody, tr, td, th { display: block; } thead { display: none; } td { border: 0; padding: 2px 0; } tr { border-bottom: 1px solid var(--line); padding: 10px 0; } }
+  .tag { font-size: 20px; line-height: 1.4; color: var(--ink-2); margin: 0 0 24px; }
+  .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 16px 0; }
+  .plan { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+  .plan b { display: block; font-size: 24px; margin: 4px 0; }
+  .plan span { color: var(--ink-2); font-size: 15px; }
+  .buy { display: inline-block; background: #8E2F12; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 18px; border-radius: 6px; }
+  .buy:hover { background: #A94A24; }
+  .soon { color: var(--ink-2); }
+  footer { margin-top: 56px; color: var(--ink-2); font-size: 15px; }
+</style>
+
+</head>
+<body>
+<div class="rule"></div>
+<main>
+  <header>
+    <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="s" x1="0" y1="0.2" x2="1" y2="0.8"><stop offset="0" stop-color="#8E2F12"/><stop offset="0.45" stop-color="#C2562B"/><stop offset="1" stop-color="#E9A23B"/></linearGradient></defs><path d="M9 7h14l4 6H5z" fill="#E9A23B"/><path d="M5 13h22l3 13H2z" fill="url(#s)"/></svg>
+    ingot
+  </header>
+
+  <h1>Melt any site down to its design system.</h1>
+  <p class="tag">Hover to inspect. Run an assay to extract. Export clean tokens for Tailwind, CSS, Figma and your AI agent.</p>
+  <p>Ingot is a browser extension for Chrome, Edge and Firefox. Hover any element to see its spacing, fonts and
+  colours. Run an assay and Ingot refines the whole page into a design system: merged colours named by role, a
+  detected type scale, the spacing grid, radii and shadows, each with a grade showing how confident it is.</p>
+
+  <h2 id="pro">Ingot Pro</h2>
+  <p>Unlimited assays, saved and synced kits, kit comparison, and every export: Tailwind v4 and v3, CSS
+  variables, SCSS, DTCG tokens, Tokens Studio for Figma and DESIGN.md for AI coding agents. Start with a
+  7-day free trial from the Kits tab, no card needed.</p>
+  <div class="plans">
+    <div class="plan">Monthly<b>$5</b><span>per month</span></div>
+    <div class="plan">Yearly<b>$29</b><span>per year</span></div>
+    <div class="plan">Lifetime<b>$59</b><span>one payment, first 200 buyers</span></div>
+  </div>
+  <!-- CHECKOUT: replace the paragraph below with
+       <p><a class="buy" href="POLAR_CHECKOUT_LINK">Get Ingot Pro</a></p> -->
+  <p class="soon">Checkout opens soon.</p>
+  <p>Payments are handled by Polar, our merchant of record. After buying, paste the licence key from your
+  receipt into Ingot: Settings → Licence → Activate.</p>
+
+  <h2 id="support">Support</h2>
+  <p>Questions, bugs or a licence that will not activate: write to
+  <a href="mailto:thataveragedev@gmail.com">thataveragedev@gmail.com</a>. Include your browser and, for licence problems, the
+  first characters of your key (never the whole key).</p>
+
+  <h2>Privacy</h2>
+  <p>Ingot reads style values only, and only when you ask. It never collects your browsing history or page
+  text. <a href="privacy.html">Read the privacy policy</a>.</p>
+
+  <footer>Ingot · <a href="privacy.html">Privacy</a> · <a href="#support">Support</a></footer>
+</main>
+</body>
+</html>

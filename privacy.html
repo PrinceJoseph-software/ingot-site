@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy · Ingot</title>
+<meta name="description" content="What the Ingot browser extension reads, what it sends, and what it never collects.">
+<style>
+  /* Colours from apps/extension/src/design/tokens.ts (light and dark). */
+  :root {
+    --bg: #F6F3EE; --surface: #FBF9F5; --line: #E4DED4; --ink: #1C1A17; --ink-2: #5B554C;
+    --accent: #C2562B; --link: #A94A24; --code: #EFEAE2;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #151412; --surface: #1D1B18; --line: #36322D; --ink: #EFEAE2; --ink-2: #B4ADA2;
+            --accent: #E07A4A; --link: #EA8E62; --code: #24211E; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .rule { height: 4px; background: linear-gradient(120deg, #8E2F12, #C2562B 45%, #E9A23B); }
+  main { max-width: 680px; margin: 0 auto; padding: 48px 16px 80px; }
+  header { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; font-weight: 600; font-size: 20px; letter-spacing: -0.01em; }
+  h1 { font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 8px; }
+  h2 { font-size: 20px; line-height: 1.3; margin: 40px 0 8px; }
+  p, li { color: var(--ink); }
+  .meta { color: var(--ink-2); margin: 0 0 32px; }
+  a { color: var(--link); }
+  code { font: 14px/1.4 ui-monospace, "JetBrains Mono", Menlo, monospace; background: var(--code); padding: 1px 4px; border-radius: 4px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); }
+  th { font-weight: 600; color: var(--ink-2); }
+  .never { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px; padding: 12px 16px; }
+  .never ul { margin: 4px 0 0; padding-left: 20px; }
+  @media (max-width: 520px) { table, tbody, tr, td, th { display: block; } thead { display: none; } td { border: 0; padding: 2px 0; } tr { border-bottom: 1px solid var(--line); padding: 10px 0; } }
+</style>
+</head>
+<body>
+<div class="rule"></div>
+<main>
+  <header>
+    <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="s" x1="0" y1="0.2" x2="1" y2="0.8"><stop offset="0" stop-color="#8E2F12"/><stop offset="0.45" stop-color="#C2562B"/><stop offset="1" stop-color="#E9A23B"/></linearGradient></defs><path d="M9 7h14l4 6H5z" fill="#E9A23B"/><path d="M5 13h22l3 13H2z" fill="url(#s)"/></svg>
+    ingot
+  </header>
+
+  <h1>Privacy policy</h1>
+  <p class="meta">For the Ingot browser extension. Last updated 24 November 2026.</p>
+
+  <p>Ingot reads the style values of the page you are looking at, and only when you ask it to. This page
+  lists exactly what it reads, what leaves your browser, and what it never collects.</p>
+
+  <div class="never">
+    <strong>Ingot never collects:</strong>
+    <ul>
+      <li>your browsing history, or the address of any page you inspect</li>
+      <li>page text, HTML, class names, attribute values, form contents or screenshots</li>
+      <li>cookies, passwords or anything you type into websites</li>
+      <li>analytics or tracking data. Ingot contains no analytics code.</li>
+    </ul>
+    We do not sell, rent or share data with advertisers or data brokers.
+  </div>
+
+  <h2>What stays on your device</h2>
+  <p>Inspect mode, the quick palette, copying CSS or Tailwind classes, the eyedropper and the assets list all
+  run inside your browser. Nothing from them is sent anywhere. Ingot only runs on a page after you click its
+  toolbar icon, use its shortcut, or choose “Allow on every site” under Site access in Settings, which asks your browser for
+  permission first.</p>
+  <p>Ingot keeps its settings, a random install ID, your licence key (if you enter one) and the most recent
+  report in your browser's extension storage. Removing the extension deletes them.</p>
+
+  <h2>What is sent, and when</h2>
+  <p>Ingot talks to one server, our backend hosted on Supabase. It sends:</p>
+  <table>
+    <thead><tr><th>When</th><th>What is sent</th></tr></thead>
+    <tbody>
+      <tr><td>You click <strong>Run assay</strong></td>
+          <td>Style values only: colour values with a weight and an “is interactive” flag, font family names with
+          size, line height, weight, character count and heading level, spacing and radius values with counts,
+          and box-shadow values. No text, no HTML, no URLs, no class names, no attribute values, no screenshots.
+          The values are refined into a report and not stored.</td></tr>
+      <tr><td>Every request</td>
+          <td>Your install ID: a random number created when Ingot is installed, used to count the 3 free assays
+          each month, run the 7-day trial and limit request rates. It is not linked to your name, email or
+          browser.</td></tr>
+      <tr><td>You enter a licence key</td>
+          <td>The key, to check it with Polar, our payment provider. We store only a one-way hash of it.</td></tr>
+      <tr><td>You save a kit (Pro)</td>
+          <td>The kit's name, any tags you add, its design tokens, and the domain of the page it came from (for
+          example <code>example.com</code>, never the full address). Saving a kit is the only time a domain is
+          sent.</td></tr>
+      <tr><td>You export</td>
+          <td>The kit's design tokens, to format them. The export is not stored.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>What we store, and for how long</h2>
+  <ul>
+    <li><strong>Install record:</strong> the install ID, when it was created, trial start and the monthly free assay count.</li>
+    <li><strong>Kits:</strong> as listed above, with their last 10 versions, until you delete the kit.</li>
+    <li><strong>Licence status:</strong> the hashed key, plan and renewal date, as reported by Polar.</li>
+    <li><strong>Rate-limit counters:</strong> per install or licence, removed after two hours.</li>
+  </ul>
+
+  <h2>Payments</h2>
+  <p>Ingot Pro is sold through <a href="https://polar.sh">Polar</a>, which acts as merchant of record. Polar
+  handles checkout, card details, tax and invoices under its own privacy policy; Ingot never sees your card. Polar
+  tells our backend the status of your subscription or purchase and which licence key belongs to it.</p>
+
+  <h2>Service providers</h2>
+  <ul>
+    <li><strong>Supabase</strong> hosts our database and server functions.</li>
+    <li><strong>Polar</strong> processes payments and issues licence keys.</li>
+  </ul>
+  <p>Both act on our behalf. No other party receives data from Ingot.</p>
+
+  <h2>Your choices</h2>
+  <ul>
+    <li>Use Inspect mode and the quick palette without sending anything.</li>
+    <li>Delete any kit from the Kits tab; its versions are deleted with it.</li>
+    <li>Choose “Remove access” under Site access in Settings at any time to withdraw that permission.</li>
+    <li>Ask us to delete the records linked to your install ID or licence key by writing to the address below.</li>
+  </ul>
+
+  <h2>Changes</h2>
+  <p>If what Ingot collects changes, we will update this page and the date at the top before the new version of
+  the extension is released.</p>
+
+  <h2>Contact</h2>
+  <p>Questions or deletion requests: <a href="mailto:thataveragedev@gmail.com">thataveragedev@gmail.com</a>.</p>
+</main>
+</body>
+</html>
